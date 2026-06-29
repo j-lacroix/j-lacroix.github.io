@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Working Papers – Jean Lacroix</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Jean Lacroix</a>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul id="nav-menu">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="teaching.html">Teaching</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="subnav">
+    <a href="research.html">Overview</a>
+    <a href="publications.html">Publications</a>
+    <a href="working-papers.html" class="subnav-active">Working Papers</a>
+  </div>
+
+  <h2>Working Papers</h2>
+
+  <div class="paper">
+    <p class="paper-title">After D-Day? Destruction, Catch-up and Leapfrog</p>
+    <p class="paper-meta">With L. Chauvet (Sorbonne) &amp; A. François (Strasbourg) · 2026</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">+ Abstract</button>
+    <div class="abstract-text">
+      This paper examines how conflicts shape territories over time by studying population dynamics in Normandy during the 20th century. Despite devastation from the 1944 Allied Landings, the region reversed its pre-1940 demographic decline. Using statistical analysis, we find that combat duration initially suppressed growth, but affected areas subsequently recovered and exceeded their projected population trajectories. Evidence from post-WWII housing data suggests reconstruction policies drove this unexpected rebound, highlighting how rebuilding efforts can reshape geographic economic distribution beyond natural advantages or chance factors.
+    </div>
+    <div class="paper-links">
+      <a href="https://www.ifo.de/en/cesifo/publications/2026/working-paper/after-d-day-destruction-catch-and-leapfrog" target="_blank">CESifo Working Paper</a>
+      <a href="https://www.ifo.de/DocDL/cesifo1_wp12658.pdf" target="_blank">PDF</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <p class="paper-title">Local Reallocation: Lessons from Bankruptcies During Britain's Market Integration</p>
+    <p class="paper-meta">With T. Korn (Hannover / Heidelberg) · 2025</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">+ Abstract</button>
+    <div class="abstract-text">
+      Using over 150,000 personal bankruptcy records alongside 19th-century British census data, this paper assesses railway infrastructure's causal effect on job creation and insolvencies. Market integration boosted both manufacturing employment and bankruptcy filings. Manufacturing enterprises expanded their workforce using cheap, task-differentiated labour, revealing reallocation mechanisms previously overlooked in sectoral and geographic studies.
+    </div>
+    <div class="paper-links">
+      <a href="https://www.ifo.de/en/cesifo/publications/2025/working-paper/local-reallocation-lessons-bankruptcies-during-britains-market" target="_blank">CESifo Working Paper</a>
+    </div>
+  </div>
+
+  <div class="paper">
+    <p class="paper-title">Des nôtres? The Political Effects of Hosting Internal Evacuees</p>
+    <p class="paper-meta">With R. Piqué (Texas A&amp;M) · 2025</p>
+    <button class="abstract-toggle" onclick="toggleAbstract(this)">+ Abstract</button>
+    <div class="abstract-text">
+      This paper investigates the political ramifications of hosting internally displaced populations. Using forced Alsatian relocation within France during early WWII and exploiting unanticipated deviations from evacuation planning, we find that municipalities receiving more evacuees than anticipated showed greater support for left-of-center parties after WWII. Evidence indicates identity-based responses to contact with culturally distinct co-nationals shaped these electoral outcomes.
+    </div>
+    <div class="paper-links">
+      <a href="https://www.ifo.de/en/cesifo/publications/2025/working-paper/des-notres-political-effects-hosting-internal-evacuees" target="_blank">CESifo Working Paper</a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">Jean Lacroix · Université Paris-Saclay</div>
+</footer>
+
+<script>
+function toggleAbstract(btn) {
+  const abs = btn.nextElementSibling;
+  if (abs.style.display === 'block') {
+    abs.style.display = 'none';
+    btn.textContent = '+ Abstract';
+  } else {
+    abs.style.display = 'block';
+    btn.textContent = '− Abstract';
+  }
+}
+</script>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-menu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

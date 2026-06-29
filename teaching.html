@@ -11,7 +11,8 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-name">Jean Lacroix</a>
-    <ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul id="nav-menu">
       <li><a href="index.html">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="teaching.html" class="active">Teaching</a></li>
@@ -22,9 +23,6 @@
 </nav>
 
 <div class="container">
-
-  <h2>Teaching</h2>
-
   <div class="institution">
     <h3>Université Paris-Saclay (France)</h3>
     <table class="course-table">
@@ -86,5 +84,13 @@
   <div class="footer-inner">Jean Lacroix · Université Paris-Saclay</div>
 </footer>
 
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-menu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+</script>
 </body>
 </html>

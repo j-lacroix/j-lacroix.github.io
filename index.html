@@ -11,7 +11,8 @@
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-name">Jean Lacroix</a>
-    <ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    <ul id="nav-menu">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="research.html">Research</a></li>
       <li><a href="teaching.html">Teaching</a></li>
@@ -49,9 +50,8 @@
     </div>
   </div>
 
-  <h2>Curriculum Vitae</h2>
-  <p style="margin-bottom:1rem; font-size:0.88rem;">
-    <a href="CV_JL.pdf" target="_blank" style="color:var(--accent-dk);">Download PDF</a>
+  <p style="margin-bottom:1rem; font-size:0.88rem; margin-top:2rem;">
+    <a href="CV_JL.pdf" target="_blank" style="color:var(--accent-dk);">Download CV in PDF</a>
   </p>
   <iframe src="CV_JL.pdf" width="100%" height="700px"
     style="border:1px solid var(--border); border-radius:4px;">
@@ -65,5 +65,13 @@
   <div class="footer-inner">Jean Lacroix · Université Paris-Saclay</div>
 </footer>
 
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('nav-menu');
+  btn.addEventListener('click', () => {
+    btn.classList.toggle('open');
+    menu.classList.toggle('open');
+  });
+</script>
 </body>
 </html>
