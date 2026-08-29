@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary:    #162232;
-  --accent:     #7aacc2;
+  --primary:    #1a1a1a;
+  --accent:     #aaaaaa;
   --accent-dk:  #3d7a9e;
-  --accent-lt:  #e5f1f8;
-  --light-bg:   #f7f9fb;
-  --border:     #dde8ef;
-  --text:       #252525;
-  --muted:      #6b7f8c;
-  --page-bg:    #fcfcfb;
-  --sidebar-w:  280px;
+  --accent-lt:  #efefef;
+  --light-bg:   #f5f5f5;
+  --border:     #e0e0e0;
+  --text:       #2a2a2a;
+  --muted:      #888888;
+  --page-bg:    #ffffff;
+  --sidebar-w:  240px;
   --nav-h:      50px;
 }
 
@@ -31,11 +31,9 @@ nav {
   height: var(--nav-h);
   z-index: 200;
   background: #fff;
-  border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   padding: 0 2rem 0 calc(var(--sidebar-w) + 1.5rem);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .nav-links { display: flex; gap: 0.1rem; }
@@ -69,9 +67,12 @@ nav a.active {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.4rem;
-  margin-right: 0.75rem;
+  padding: 0.6rem;
+  margin-right: 0.5rem;
   flex-shrink: 0;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
 }
 
 .hamburger span {
@@ -96,7 +97,6 @@ nav a.active {
   height: calc(100vh - var(--nav-h));
   overflow-y: auto;
   background: #fff;
-  border-right: 1px solid var(--border);
   padding: 2rem 1.5rem;
   display: flex;
   flex-direction: column;
@@ -104,12 +104,12 @@ nav a.active {
 }
 
 .sidebar-photo {
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid #fff;
-  box-shadow: 0 3px 14px rgba(22,34,50,0.14);
+  box-shadow: 0 3px 14px rgba(0,0,0,0.12);
   margin: 0 auto 1rem;
   display: block;
 }
@@ -126,9 +126,9 @@ nav a.active {
 }
 
 .sidebar-title {
-  font-size: 0.81rem;
+  font-size: 0.92rem;
   color: var(--muted);
-  font-weight: 300;
+  font-weight: 400;
   text-align: center;
   margin-bottom: 0.15rem;
   letter-spacing: 0.01em;
@@ -147,33 +147,35 @@ nav a.active {
 /* ─── SOCIAL LINKS ───────────────────────────────────────── */
 .social-links {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 0.35rem;
-  justify-content: center;
+  align-items: flex-start;
   margin-bottom: 1rem;
 }
 
 .social-links a {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 0.68rem;
+  gap: 0.35rem;
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--accent-dk);
+  color: #3a7ca5;
   text-decoration: none;
-  border: 1px solid var(--accent);
+  background: #e6f3fa;
   border-radius: 20px;
-  padding: 0.18rem 0.6rem;
-  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  padding: 0.28rem 0.75rem;
+  transition: background 0.15s, color 0.15s;
 }
 
 .social-links a:hover {
-  background: var(--accent-dk);
-  color: #fff;
-  border-color: var(--accent-dk);
+  background: #cce4f4;
+  color: #1f5f84;
 }
+
+/* ─── SIDEBAR MOBILE NAV (hidden on desktop) ─────────────── */
+.sidebar-mobile-nav { display: none; }
 
 /* ─── SIDEBAR CV ─────────────────────────────────────────── */
 .sidebar-cv {
@@ -278,14 +280,14 @@ h3 {
   border-left: 3px solid var(--accent-lt);
   border-radius: 0 5px 5px 0;
   background: #fff;
-  box-shadow: 0 1px 3px rgba(22,34,50,0.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   transition: background 0.18s, border-color 0.18s, box-shadow 0.18s;
 }
 
 .paper:hover {
   background: var(--accent-lt);
   border-left-color: var(--accent-dk);
-  box-shadow: 0 3px 10px rgba(61,122,158,0.10);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
 }
 
 .paper-title {
@@ -315,7 +317,8 @@ h3 {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
-  padding: 0.2rem 0.7rem;
+  padding: 0.3rem 0.9rem;
+  min-height: 36px;
   transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
 
@@ -354,7 +357,10 @@ h3 {
   text-decoration: none;
   border: 1px solid var(--accent);
   border-radius: 20px;
-  padding: 0.15rem 0.65rem;
+  padding: 0.25rem 0.75rem;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
@@ -375,7 +381,7 @@ h3 {
   background: #fff;
   font-size: 0.91rem;
   line-height: 1.6;
-  box-shadow: 0 1px 3px rgba(22,34,50,0.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
   transition: border-color 0.15s, background 0.15s;
 }
 
@@ -400,7 +406,7 @@ h3 {
 .section-label:first-of-type { margin-top: 0; }
 
 /* ─── TEACHING ───────────────────────────────────────────── */
-.institution { margin-bottom: 2.25rem; }
+.institution { margin-bottom: 2.25rem; overflow-x: auto; }
 
 .institution h3 {
   font-family: 'Inter', sans-serif;
@@ -412,7 +418,7 @@ h3 {
   border-bottom: 1px solid var(--border);
 }
 
-.course-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; }
+.course-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; min-width: 480px; }
 
 .course-table th {
   background: var(--accent-dk);
@@ -467,6 +473,9 @@ footer a:hover { text-decoration: underline; }
     padding: 0 1rem;
   }
 
+  /* hide desktop nav links — navigation moves into sidebar */
+  .nav-links { display: none; }
+
   .hamburger { display: flex; }
 
   .sidebar {
@@ -476,6 +485,34 @@ footer a:hover { text-decoration: underline; }
   }
 
   .sidebar.open { transform: translateX(0); }
+
+  /* mobile nav links inside sidebar */
+  .sidebar-mobile-nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    gap: 0.1rem;
+  }
+
+  .sidebar-mobile-nav a {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 0.55rem 0.25rem;
+    border-radius: 4px;
+    transition: color 0.15s;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar-mobile-nav a:hover,
+  .sidebar-mobile-nav a.active { color: var(--primary); font-weight: 700; }
 
   .main-content {
     margin-left: 0;
