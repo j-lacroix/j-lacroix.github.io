@@ -194,7 +194,7 @@ nav a.active {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.60);
   z-index: 90;
 }
 
@@ -477,10 +477,12 @@ footer a:hover { text-decoration: underline; }
   /* Sidebar becomes a slide-in drawer on mobile */
   .sidebar {
     display: none;
-    background: #fff;
+    background: #ffffff;
     z-index: 300;
-    border-right: 1px solid var(--border);
-    box-shadow: 4px 0 24px rgba(0,0,0,0.18);
+    width: 80vw;
+    max-width: 320px;
+    border-right: 2px solid var(--border);
+    box-shadow: 6px 0 32px rgba(0,0,0,0.28);
   }
   .sidebar.open { display: flex; }
 
