@@ -21,7 +21,6 @@
 <div class="overlay" id="overlay"></div>
 
 <aside class="sidebar" id="sidebar">
-  <img src="short.jpg" alt="Jean Lacroix" class="sidebar-photo">
   <h1 class="sidebar-name">Jean Lacroix</h1>
   <p class="sidebar-title">Professor</p>
   <p class="sidebar-affil">Thema<br>CY Cergy Paris University</p>
@@ -72,11 +71,11 @@
 
 <script>
   const hamburger = document.getElementById('hamburger');
-  const navLinks  = document.getElementById('nav-links');
+  const sidebar   = document.getElementById('sidebar');
   const overlay   = document.getElementById('overlay');
   function toggleMenu() {
     hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
+    sidebar.classList.toggle('open');
     overlay.classList.toggle('open');
   }
   hamburger.addEventListener('click', toggleMenu);

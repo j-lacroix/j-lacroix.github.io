@@ -24,16 +24,17 @@ body {
   background: var(--page-bg);
 }
 
-/* ─── TOP NAV ────────────────────────────────────────────── */
+/* ─── TOP NAV (mobile only; sidebar handles nav on desktop) ─ */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   height: var(--nav-h);
   z-index: 200;
   background: #fff;
-  display: flex;
+  display: none;
   align-items: center;
-  padding: 0 2rem 0 calc(var(--sidebar-w) + 1.5rem);
+  padding: 0 1rem;
+  border-bottom: 1px solid var(--border);
 }
 
 .nav-links { display: flex; gap: 0.1rem; }
@@ -174,8 +175,31 @@ nav a.active {
   color: #1f5f84;
 }
 
-/* ─── SIDEBAR MOBILE NAV (hidden on desktop) ─────────────── */
-.sidebar-mobile-nav { display: none; }
+/* ─── SIDEBAR NAV LINKS ──────────────────────────────────── */
+.sidebar-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+.sidebar-mobile-nav a {
+  display: block;
+  padding: 0.4rem 0.5rem;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.76rem;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: color 0.15s;
+}
+
+.sidebar-mobile-nav a:hover { color: var(--primary); }
+.sidebar-mobile-nav a.active { color: var(--accent-dk); font-weight: 700; }
 
 /* ─── SIDEBAR CV ─────────────────────────────────────────── */
 .sidebar-cv {
@@ -203,7 +227,7 @@ nav a.active {
 /* ─── MAIN CONTENT ───────────────────────────────────────── */
 .main-content {
   margin-left: var(--sidebar-w);
-  padding: calc(var(--nav-h) + 2.5rem) 2.5rem 3rem;
+  padding: 2.5rem 2.5rem 3rem;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -469,47 +493,24 @@ footer a:hover { text-decoration: underline; }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 768px) {
-  /* Nav expands vertically when menu is open */
-  nav {
-    height: auto;
-    min-height: var(--nav-h);
-    padding: 0;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    border-bottom: 1px solid var(--border);
-  }
+  /* Show the nav bar (hamburger only) on mobile */
+  nav { display: flex; }
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
 
-  .hamburger {
-    display: flex;
-    height: var(--nav-h);
-    margin-left: 0.75rem;
-  }
-
-  /* Nav links hidden by default; appear as full-width panel below hamburger */
-  .nav-links {
+  /* Sidebar becomes a slide-in drawer on mobile */
+  .sidebar {
     display: none;
-    width: 100%;
-    flex-direction: column;
-    background: #fff;
-    border-top: 1px solid var(--border);
-    box-shadow: 0 6px 20px rgba(0,0,0,0.10);
-    padding: 0.25rem 0 0.5rem;
+    z-index: 300;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.15);
   }
+  .sidebar.open { display: flex; }
 
-  .nav-links.open { display: flex; }
-
-  nav a {
-    padding: 0.85rem 1.5rem;
-    font-size: 0.88rem;
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
+  /* Overlay: sits above content, below sidebar; starts below the nav bar */
+  .overlay {
+    z-index: 250;
+    top: var(--nav-h);
   }
-
-  nav a:last-child { border-bottom: none; }
-
-  .sidebar { display: none; }
 
   .main-content {
     margin-left: 0;
