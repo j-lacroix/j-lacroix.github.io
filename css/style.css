@@ -469,22 +469,30 @@ footer a:hover { text-decoration: underline; }
 
 /* ─── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 768px) {
+  /* Nav expands vertically when menu is open */
   nav {
-    padding: 0 1rem;
+    height: auto;
+    min-height: var(--nav-h);
+    padding: 0;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
   }
 
-  .hamburger { display: flex; }
+  .hamburger {
+    display: flex;
+    height: var(--nav-h);
+    margin-left: 0.75rem;
+  }
 
-  /* Nav links become a vertical dropdown panel below the nav bar */
+  /* Nav links hidden by default; appear as full-width panel below hamburger */
   .nav-links {
     display: none;
-    position: fixed;
-    top: var(--nav-h);
-    left: 0; right: 0;
+    width: 100%;
     flex-direction: column;
     background: #fff;
+    border-top: 1px solid var(--border);
     box-shadow: 0 6px 20px rgba(0,0,0,0.10);
-    z-index: 150;
     padding: 0.25rem 0 0.5rem;
   }
 
@@ -501,13 +509,6 @@ footer a:hover { text-decoration: underline; }
 
   nav a:last-child { border-bottom: none; }
 
-  /* Overlay starts below nav bar */
-  .overlay {
-    z-index: 140;
-    top: calc(var(--nav-h) + 5 * 48px + 0.75rem);
-  }
-
-  /* Sidebar hidden entirely on mobile */
   .sidebar { display: none; }
 
   .main-content {
