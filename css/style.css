@@ -473,55 +473,42 @@ footer a:hover { text-decoration: underline; }
     padding: 0 1rem;
   }
 
-  /* hide desktop nav links — navigation moves into sidebar drawer */
-  .nav-links { display: none; }
-
   .hamburger { display: flex; }
 
-  /* full-height drawer — slides over the nav bar too */
-  .sidebar {
-    top: 0;
-    height: 100vh;
-    z-index: 300;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    padding-top: 1.25rem;
-    width: min(280px, 85vw);
-  }
-
-  .sidebar.open { transform: translateX(0); }
-
-  /* overlay sits above the nav bar so the whole screen dims */
-  .overlay { z-index: 250; }
-
-  /* nav links first inside the drawer */
-  .sidebar-mobile-nav {
-    display: flex;
+  /* Nav links become a vertical dropdown panel below the nav bar */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
     flex-direction: column;
-    order: -1;
-    padding-bottom: 1.25rem;
-    margin-bottom: 1.25rem;
-    border-bottom: 1px solid var(--border);
-    gap: 0.1rem;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+    z-index: 150;
+    padding: 0.25rem 0 0.5rem;
   }
 
-  .sidebar-mobile-nav a {
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-    padding: 0.6rem 0.25rem;
-    border-radius: 4px;
-    transition: color 0.15s;
-    min-height: 44px;
+  .nav-links.open { display: flex; }
+
+  nav a {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.88rem;
+    min-height: 48px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--border);
   }
 
-  .sidebar-mobile-nav a:hover,
-  .sidebar-mobile-nav a.active { color: var(--primary); font-weight: 700; }
+  nav a:last-child { border-bottom: none; }
+
+  /* Overlay starts below nav bar */
+  .overlay {
+    z-index: 140;
+    top: calc(var(--nav-h) + 5 * 48px + 0.75rem);
+  }
+
+  /* Sidebar hidden entirely on mobile */
+  .sidebar { display: none; }
 
   .main-content {
     margin-left: 0;

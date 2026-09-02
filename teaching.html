@@ -10,7 +10,7 @@
 
 <nav>
   <button class="hamburger" id="hamburger" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="index.html">Home</a>
     <a href="research.html">Research</a>
     <a href="teaching.html" class="active">Teaching</a>
@@ -100,11 +100,11 @@
 
 <script>
   const hamburger = document.getElementById('hamburger');
-  const sidebar   = document.getElementById('sidebar');
+  const navLinks  = document.getElementById('nav-links');
   const overlay   = document.getElementById('overlay');
   function toggleMenu() {
     hamburger.classList.toggle('open');
-    sidebar.classList.toggle('open');
+    navLinks.classList.toggle('open');
     overlay.classList.toggle('open');
   }
   hamburger.addEventListener('click', toggleMenu);
