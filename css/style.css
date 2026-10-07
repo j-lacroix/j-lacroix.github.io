@@ -144,6 +144,15 @@ nav a.active {
 .sidebar-affil a { color: var(--accent-dk); text-decoration: none; }
 .sidebar-affil a:hover { text-decoration: underline; }
 
+.photo-credit {
+  font-size: 0.58rem;
+  color: var(--accent);
+  text-align: center;
+  margin-top: -0.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.01em;
+}
+
 /* ─── SOCIAL LINKS ───────────────────────────────────────── */
 .social-links {
   display: flex;
